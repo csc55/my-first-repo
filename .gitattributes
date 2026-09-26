@@ -1,0 +1,12 @@
+# Normalize line endings: store LF in the repository, check out the native
+# form on each platform.
+#
+# Added 2026-09-26, after a merge conflict where both sides of bmi.py were
+# textually identical -- the local commit held LF (277 bytes, git had converted
+# it via core.autocrlf=true) while the file uploaded through GitHub's web UI
+# held CRLF (296 bytes, the raw bytes the browser sent). Git saw two different
+# blobs and refused to merge them.
+#
+# With this file present, git normalises on the way in, so that class of
+# conflict cannot happen again.
+* text=auto
